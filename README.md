@@ -34,4 +34,4 @@ The following guides illustrates how to use certain features concretely:
  * [https://medium.com/@phayao/%E0%B8%A1%E0%B8%B2%E0%B8%9B%E0%B8%81%E0%B8%9B%E0%B9%89%E0%B8%AD%E0%B8%87-microservice-%E0%B8%94%E0%B9%89%E0%B8%A7%E0%B8%A2-oauth2-%E0%B9%83%E0%B8%99-spring-boot-82dfd2252f47](https://medium.com/@phayao/%E0%B8%A1%E0%B8%B2%E0%B8%9B%E0%B8%81%E0%B8%9B%E0%B9%89%E0%B8%AD%E0%B8%87-microservice-%E0%B8%94%E0%B9%89%E0%B8%A7%E0%B8%A2-oauth2-%E0%B9%83%E0%B8%99-spring-boot-82dfd2252f47)
  * [https://www.baeldung.com/sso-spring-security-oauth2](https://www.baeldung.com/sso-spring-security-oauth2)
 
- 
+ 2 . การ deploy ในอานาคต อาจจะทำ ใช้ docker ในการ run ได้ ซึ่งผมได้ guide เป็น dockerfile กับ docker-compose ไว้แล้ว
