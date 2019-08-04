@@ -1,0 +1,8 @@
+    container_name: dmeo-service
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: demo-service:latest
+    restart: always
+    ports:
+      - "8080:8080"
