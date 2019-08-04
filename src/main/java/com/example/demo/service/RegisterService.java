@@ -66,11 +66,12 @@ public class RegisterService {
 
 	public List<EmployeeModal> editEmpoyee(List<Employee> employeeRequest) {
 		List<EmployeeModal> emp = employeeRequest.stream().map(mapRequest -> {
+			String basedSalary = calBaseSalaryService.calBaseSalary(mapRequest.getSalary());
 			return EmployeeModal.builder()
 					.id(mapRequest.getId())
 					.email(mapRequest.getEmail())
 					.passWord(mapRequest.getPassWord())
-					.basedSalary(mapRequest.getBasedSalary())
+					.basedSalary(basedSalary)
 					.salary(mapRequest.getSalary())
 					.build();
 		}).collect(Collectors.toList());
