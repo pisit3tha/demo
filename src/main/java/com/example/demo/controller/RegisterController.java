@@ -1,8 +1,6 @@
 package com.example.demo.controller;
 
-import java.math.BigDecimal;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -13,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.response.Response;
 import com.example.demo.modal.EmployeeModal;
 import com.example.demo.service.CalBaseSalaryService;
 import com.example.demo.service.GenPassword;
@@ -39,13 +38,14 @@ public class RegisterController {
 	}
 	
 	  @RequestMapping(value = "/registry" ,  method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)
-	  public ResponseEntity newEmpoyeer(@RequestBody Employee employeeRequest ) {
+	  public ResponseEntity newEmpoyee(@RequestBody Employee employeeRequest ) {
 		  EmployeeModal employee = new EmployeeModal();
 	    	try {
-			employee = registerService.newUser(employeeRequest);
+			employee = registerService.newEmpoyee(employeeRequest);
 			} catch (RuntimeException e) {
-				new RuntimeException("Employee not registry");
+				Response response = new Response("","Employee not registry");
 				log.error(e.getMessage());
+			 	return new ResponseEntity(response , HttpStatus.INTERNAL_SERVER_ERROR);
 			}
 	    	return new ResponseEntity(employee , HttpStatus.OK);
 		    	
@@ -73,7 +73,7 @@ public class RegisterController {
 	    	return new ResponseEntity(employee , HttpStatus.OK);
 	}
 	  
-	  @RequestMapping(value = "/edit" ,  method = RequestMethod.PATCH,produces = MediaType.APPLICATION_JSON_VALUE)
+	  @RequestMapping(value = "/edit" ,  method = RequestMethod.PUT,produces = MediaType.APPLICATION_JSON_VALUE)
 	  public ResponseEntity editEmpoyee(@RequestBody  List<Employee> employeeRequest) {
 		  List<EmployeeModal> employee = null;
 		  try {

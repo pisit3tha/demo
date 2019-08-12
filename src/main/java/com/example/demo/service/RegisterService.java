@@ -30,7 +30,7 @@ public class RegisterService {
 		this.genPassword = genPassword ; 
 		
 	}
-	public EmployeeModal newUser(Employee employeeRequest){
+	public EmployeeModal newEmpoyee(Employee employeeRequest){
 		BigDecimal salary = employeeRequest.getSalary();
 	  	String passWord = employeeRequest.getPassWord();
 	  	String email = employeeRequest.getEmail();
@@ -59,7 +59,6 @@ public class RegisterService {
 
 	public List<EmployeeModal> deleteEmpoyee(int id) {
 		 empRepository.deleteById(id);
-		 long i =empRepository.count();
 		 List<EmployeeModal> employee = empRepository.findAll();
 			return employee;
 	}
